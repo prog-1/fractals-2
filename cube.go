@@ -41,8 +41,24 @@ func (g *Game) Draw(screen *ebiten.Image) {
 
 func DrawCube(screen *ebiten.Image, cube [8]point) {
 	clr := color.RGBA{255, 255, 255, 255}
+
+	//1st plane
 	ebitenutil.DrawLine(screen, cube[0].x, cube[0].y, cube[1].x, cube[1].y, clr)
 	ebitenutil.DrawLine(screen, cube[1].x, cube[1].y, cube[2].x, cube[2].y, clr)
+	ebitenutil.DrawLine(screen, cube[2].x, cube[2].y, cube[3].x, cube[3].y, clr)
+	ebitenutil.DrawLine(screen, cube[3].x, cube[3].y, cube[0].x, cube[0].y, clr)
+
+	//2nd plane
+	ebitenutil.DrawLine(screen, cube[4].x, cube[4].y, cube[5].x, cube[5].y, clr)
+	ebitenutil.DrawLine(screen, cube[5].x, cube[5].y, cube[6].x, cube[6].y, clr)
+	ebitenutil.DrawLine(screen, cube[6].x, cube[6].y, cube[7].x, cube[7].y, clr)
+	ebitenutil.DrawLine(screen, cube[7].x, cube[7].y, cube[4].x, cube[4].y, clr)
+
+	//connectors
+	ebitenutil.DrawLine(screen, cube[0].x, cube[0].y, cube[4].x, cube[4].y, clr)
+	ebitenutil.DrawLine(screen, cube[1].x, cube[1].y, cube[5].x, cube[5].y, clr)
+	ebitenutil.DrawLine(screen, cube[3].x, cube[3].y, cube[7].x, cube[7].y, clr)
+	ebitenutil.DrawLine(screen, cube[2].x, cube[2].y, cube[6].x, cube[6].y, clr)
 }
 
 //-------------------------Functions----------------------------------
